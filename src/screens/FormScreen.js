@@ -1,10 +1,10 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-function DetailsScreen() {
+function FormScreen() {
     return (
         <View style={styles.container}>
-            <Text>Settings</Text>
+            <Text>Form</Text>
         </View>
     );
 }
@@ -13,9 +13,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#222130',
-        alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
     },
 });
 
-export default DetailsScreen;
+export default FormScreen;

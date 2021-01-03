@@ -1,15 +1,21 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
+import ButtonComponent from './ButtonComponent';
+
 function ItemCard(props) {
     return (
         <View style={styles.container}>
-            {/* TODO: Make the image display instead of text */}
+            {/* TODO: Make an image display instead of text */}
             <Text style={styles.image}></Text>
             {/*  */}
+
             <Text style={styles.titleText}>{props.title}</Text>
             <Text style={styles.descriptionText}>{props.age} • {props.breed}</Text>
-            <Text style={styles.button}>Details</Text>
+
+            {/* TODO: Make a button instead of text */}
+            <ButtonComponent buttonName="SNATCH" />
+            {/*  */}
         </View>
     );
 }
@@ -24,28 +30,16 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         color: 'white',
         width: '80%',
-        height: 300,
+        height: 350,
         marginTop: 10,
-        borderRightColor: 'rgba(235, 25, 110, 0.7)',
-        borderLeftColor: '#58cdd1',
-        borderWidth: 5,
-    },
-    button: {
-        color: 'white',
-        fontSize: 24,
-        textAlign: 'center',
-        letterSpacing: 2,
-        marginTop: 15,
-        marginBottom: 15,
-        paddingTop: 5,
-        width: '30%',
+        marginBottom: 10,
         borderRightColor: 'rgba(235, 25, 110, 0.7)',
         borderLeftColor: '#58cdd1',
         borderWidth: 5,
     },
     image: {
         marginTop: 15,
-        height: 100,
+        height: 160,
         width: '80%',
         borderRadius: 15,
         borderWidth: 5,
