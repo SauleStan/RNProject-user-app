@@ -1,9 +1,14 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, StatusBar } from 'react-native';
 
 function AboutScreen() {
     return (
         <View style={styles.container}>
+            <StatusBar
+                barStyle="light-content"
+                translucent={false}
+                backgroundColor="#222130"
+            />
             <Text style={styles.textSmaller}>✩ ✩ ✩</Text>
             <Text style={styles.textBigger}>Welcome to PetSnatcher!</Text>
             <Text style={styles.textSmaller}>✩ ✩ ✩</Text>

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, StatusBar } from 'react-native';
 import { TextInput } from 'react-native';
+
+import ButtonComponent from '../components/ButtonComponent';
 
 function FormScreen() {
     const [fName, onChangefNameText] = useState();
@@ -11,6 +13,12 @@ function FormScreen() {
 
     return (
         <View style={styles.container}>
+            <StatusBar
+                barStyle="light-content"
+                translucent={false}
+                backgroundColor="#222130"
+            />
+            <Text style={styles.text}>Ask about the pet!</Text>
             <TextInput
                 style={styles.input}
                 placeholder="First Name"
@@ -41,12 +49,16 @@ function FormScreen() {
             />
             <TextInput
                 style={styles.textArea}
-                placeholder="Fill here if you have any questions for us"
+                placeholder="Fill here if you have any additional comments or questions for us"
                 placeholderTextColor='#878787'
+                textAlignVertical="top"
                 multiline={true}
                 numberOfLines={10}
                 onChangeText={text => onChangeOther(text)}
                 value={other}
+            />
+            <ButtonComponent
+                buttonName="SUBMIT"
             />
         </View>
     );
@@ -63,7 +75,8 @@ const styles = StyleSheet.create({
         color: 'white',
         width: '80%',
         height: 40,
-        borderColor: 'gray',
+        borderRightColor: 'rgba(235, 25, 110, 0.7)',
+        borderLeftColor: '#58cdd1',
         borderWidth: 1,
         paddingLeft: 10,
         paddingRight: 10,
@@ -71,19 +84,19 @@ const styles = StyleSheet.create({
     },
     text: {
         color: 'white',
-        fontSize: 20,
+        fontSize: 24,
+        margin: 10,
         textAlign: 'left',
     },
     textArea: {
         width: '80%',
         color: 'white',
-        borderColor: 'gray',
+        borderRightColor: 'rgba(235, 25, 110, 0.7)',
+        borderLeftColor: '#58cdd1',
         borderWidth: 1,
-        paddingLeft: 10,
-        paddingRight: 10,
+        padding: 10,
         margin: 10,
         height: 150,
-        justifyContent: 'flex-start'
     }
 });
 

@@ -19,9 +19,9 @@ export default function App() {
           inactiveBackgroundColor: '#222831',
         }}
       >
-        <Tab.Screen name="Form" component={FormScreen} />
         <Tab.Screen name="About" component={AboutScreen} />
         <Tab.Screen name="Browse" component={HomeScreen} />
+        <Tab.Screen name="Form" component={FormScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   );
