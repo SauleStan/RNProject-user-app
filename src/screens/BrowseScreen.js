@@ -1,42 +1,35 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, StatusBar, SafeAreaView, FlatList } from 'react-native';
 
 import ItemCard from '../components/ItemCard';
+import { fetchData } from '../database/petDatabase.utils';
 
-const DATA = [
-    {
-        id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-        title: 'Bunny',
-        age: "Adult",
-        breed: "Hwite"
-    },
-    {
-        id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-        title: 'Sqwrl',
-        age: "Baby",
-        breed: "Chestnut"
-    },
-    {
-        id: '58694a0f-3da1-471f-bd96-145571e29d72',
-        title: 'Bunny 2',
-        age: "Adult",
-        breed: "Blakk"
-    },
-];
+function BrowseScreen({ navigation }) {
+    const [data, onChangeData] = useState([]);
 
-function HomeScreen() {
+    useEffect(() => {
+        const unsubscribe = navigation.addListener('focus', () => {
+            fetchData().then((result) => {
+                onChangeData(result);
+                // console.log(data);
+            });
+        });
+        return unsubscribe;
+    }, [navigation]);
+
     const renderItem = ({ item }) => (
         <ItemCard
             title={item.title}
             age={item.age}
             breed={item.breed}
+            onPress={()=>{navigation.navigate('Form')}}
         />
     );
 
     return (
         <SafeAreaView style={styles.container}>
             <FlatList
-                data={DATA}
+                data={data}
                 renderItem={renderItem}
                 keyExtractor={item => item.id}
             />
@@ -54,7 +47,8 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#222130',
         justifyContent: 'flex-start',
+        paddingLeft: 18,
     },
 });
 
-export default HomeScreen;
+export default BrowseScreen;

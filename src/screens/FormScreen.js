@@ -18,7 +18,9 @@ function FormScreen() {
                 translucent={false}
                 backgroundColor="#222130"
             />
+
             <Text style={styles.text}>Ask about the pet!</Text>
+            
             <TextInput
                 style={styles.input}
                 placeholder="First Name"

@@ -13,9 +13,7 @@ function ItemCard(props) {
             <Text style={styles.titleText}>{props.title}</Text>
             <Text style={styles.descriptionText}>{props.age} • {props.breed}</Text>
 
-            {/* TODO: Make a button instead of text */}
-            <ButtonComponent buttonName="SNATCH" />
-            {/*  */}
+            <ButtonComponent buttonName="SNATCH" onPress={props.onPress}/>
         </View>
     );
 }
@@ -29,7 +27,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around',
         alignItems: 'center',
         color: 'white',
-        width: '80%',
+        width: '95%',
         height: 350,
         marginTop: 10,
         marginBottom: 10,
@@ -53,8 +51,12 @@ const styles = StyleSheet.create({
     descriptionText: {
         fontSize: 18,
         color: 'grey'
+    },
+    buttonArea: {
+        flexDirection: 'row',
+        width: '80%',
+        justifyContent: 'space-between'
     }
-
 });
 
 export default ItemCard;
