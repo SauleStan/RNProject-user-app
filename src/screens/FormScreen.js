@@ -4,9 +4,10 @@ import { TextInput } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 
 import ButtonComponent from '../components/ButtonComponent';
+import { addMessage } from '../database/messageDatabase.utils';
 
 function FormScreen({ route }) {
-    const { petName, petImage } = route.params;
+    const { pet } = route.params;
 
     const [fName, onChangefNameText] = useState();
     const [lName, onChangelNameText] = useState();
@@ -23,13 +24,14 @@ function FormScreen({ route }) {
                     backgroundColor="#222130"
                 />
 
-                <Text style={styles.text}>Ask about {petName}!</Text>
+                <Text style={styles.text}>Ask about {pet.title}!</Text>
                 <Image
                     style={styles.image}
                     source={{
-                        uri: petImage,
+                        uri: pet.image,
                     }}
                 />
+                <Text style={styles.smallerText}>Fill the form below and we'll get in touch with you :)</Text>
                 <TextInput
                     style={styles.input}
                     placeholder="First Name"
@@ -70,6 +72,14 @@ function FormScreen({ route }) {
                 />
                 <ButtonComponent
                     buttonName="SUBMIT"
+                    onPress={() => { addMessage({
+                        fName: fName,
+                        lName: lName,
+                        phone: phone,
+                        email: email,
+                        other: other,
+                        pet: pet
+                    }) }}
                 />
             </ScrollView>
         </SafeAreaView>
@@ -101,6 +111,14 @@ const styles = StyleSheet.create({
         fontSize: 24,
         margin: 10,
         textAlign: 'left',
+    },
+    smallerText: {
+        color: 'white',
+        fontSize: 18,
+        margin: 10,
+        paddingLeft: 20,
+        paddingRight: 20,
+        textAlign: 'center',
     },
     textArea: {
         width: '80%',

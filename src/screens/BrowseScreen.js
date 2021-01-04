@@ -11,7 +11,6 @@ function BrowseScreen({ navigation }) {
         const unsubscribe = navigation.addListener('focus', () => {
             fetchData().then((result) => {
                 onChangeData(result);
-                // console.log(data);
             });
         });
         return unsubscribe;
@@ -24,8 +23,7 @@ function BrowseScreen({ navigation }) {
             breed={item.breed}
             image={item.image}
             onPress={()=>{navigation.navigate('Form', {
-                petName: item.title,
-                petImage: item.image
+                pet: item
             })}}
         />
     );
@@ -51,7 +49,8 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#222130',
         justifyContent: 'flex-start',
-        paddingLeft: 18,
+        paddingLeft: 35,
+        paddingRight: 20,
     },
 });
 

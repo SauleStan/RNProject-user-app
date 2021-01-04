@@ -13,7 +13,7 @@ function AboutScreen() {
             <Text style={styles.textBigger}>Welcome to PetSnatcher!</Text>
             <Text style={styles.textSmaller}>✩ ✩ ✩</Text>
             <View style={styles.mainTextArea}>
-                <Text style={styles.text}>This app is made with the purpose of finding a new pet for your hosehold :)</Text>
+                <Text style={styles.text}>This app is made with the purpose of finding a new pet for your household :)</Text>
                 <Text style={styles.text}>Interested in any of the good boys listed in this app? Press the snatch button, fill out the form and we'll get in touch with you!</Text>
             </View>
         </View>
