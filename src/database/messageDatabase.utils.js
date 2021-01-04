@@ -14,8 +14,6 @@ function addMessage(props) {
             }
         )
         .then(() => { console.log(`Message added!`) })
-
-    console.log(props);
 }
 
 export { addMessage };

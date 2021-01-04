@@ -3,10 +3,18 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import { LogBox } from 'react-native';
+import _ from 'lodash';
 
 import BrowseScreen from './src/screens/BrowseScreen';
 import AboutScreen from './src/screens/AboutScreen';
 import FormScreen from './src/screens/FormScreen';
+
+const _console = _.clone(console);
+console.warn = message => {
+  if (message.indexOf('Setting a timer') <= -1) {
+    _console.warn(message);
+  }
+};
 
 function Browse() {
   return (
