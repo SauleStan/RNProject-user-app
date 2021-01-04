@@ -13,6 +13,7 @@ async function fetchData() {
                     title: documentSnapshot.data().title,
                     age: documentSnapshot.data().age,
                     breed: documentSnapshot.data().breed,
+                    image: documentSnapshot.data().image,
                 }
                 petData.push(item);
             });

@@ -22,7 +22,11 @@ function BrowseScreen({ navigation }) {
             title={item.title}
             age={item.age}
             breed={item.breed}
-            onPress={()=>{navigation.navigate('Form')}}
+            image={item.image}
+            onPress={()=>{navigation.navigate('Form', {
+                petName: item.title,
+                petImage: item.image
+            })}}
         />
     );
 
